@@ -1,0 +1,13 @@
+---
+- include: freeipa.yml
+- include: cloudera_mgr.yml
+- include: cdh_gateways.yml
+- include: cdh_masters.yml
+- include: cdh_workers.yml
+- include: freeipa_config_server.yml
+- include: freeipa_config_client.yml
+- include: hadoop_users.yml
+- include: cloudera_mgr_install_server.yml
+- include: cloudera_mgr_install_agent.yml
+- include: cloudera_mgr_start_server.yml
+- include: cloudera_mgr_start_agent.yml

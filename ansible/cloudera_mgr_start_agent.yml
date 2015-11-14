@@ -1,0 +1,4 @@
+---
+- hosts: cdhnodes
+  roles:
+    - cloudera_mgr_agent_service

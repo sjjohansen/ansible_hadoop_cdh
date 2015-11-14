@@ -3,3 +3,4 @@ cdhmgr01
 cdhgw01
 cdhmaster01
 cdhworker01
+cdhworker02
