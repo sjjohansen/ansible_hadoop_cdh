@@ -1,0 +1,9 @@
+---
+- name: get current dns server
+  shell: "egrep '^nameserver ' /etc/resolv.conf | tail -1 | awk '{print $NF}'"
+  register: current_dns_server
+
+- name: initial server install of freeipa
+  command: "ipa-server-install -r {{ ansible_domain|upper }} -n {{ ansible_domain }} -p {{ dspassword }} -a {{ ipa_admin_password }} --hostname={{ ansible_fqdn }} --no-ntp --idstart={{ idstart }} --setup-dns --forwarder={{ current_dns_server.stdout }} --unattended creates=/var/log/ipaserver-install.log"
+  notify:
+    - restart ipa

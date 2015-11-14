@@ -1,0 +1,22 @@
+---
+- name: ensure ipa-server is at the latest version
+  yum: pkg=ipa-server state=latest
+
+- name: ensure oddjob-mkhomedir is at the latest version
+  yum: pkg=oddjob-mkhomedir state=latest
+
+- name: ensure bind is at the latest version
+  yum: pkg=bind state=latest
+
+- name: ensure bind-dyndb-ldap is at the latest version
+  yum: pkg=bind-dyndb-ldap state=latest
+
+- name: test if mkhomedir enabled
+  command: "egrep pam_oddjob_mkhomedir.so /etc/pam.d/system-auth"
+  register: mkhomedir_result
+  ignore_errors: True
+
+- name: enable mkhomedir
+  command: "authconfig --enablemkhomedir --update"
+  when: mkhomedir_result|failed
+

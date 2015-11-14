@@ -1,0 +1,23 @@
+---
+- name: initial client install of freeipa
+  command: "ipa-client-install --no-ntp --principal={{ ipa_admin_princ }} --password={{ ipa_admin_password }} --unattended creates=/var/log/ipaclient-install.log"
+
+- name: check if we have a forward record
+  command: "nslookup {{ ansible_fqdn }}"
+  register: check_fwd_record
+  ignore_errors: True
+
+- name: check if we have a reverse record
+  command: "nslookup {{ ansible_default_ipv4.address }}"
+  register: check_rev_record
+  ignore_errors: True
+
+- name: get kerberos admin ticket
+  shell: "echo '{{ ipa_admin_password }}' | kinit {{ ipa_admin_princ }}"
+  when: check_rev_record|failed
+
+- name: add PTR record to IPA
+  shell: "ipa dnsrecord-add {{ reverse_dns_zone }} {{ forth_octet }} --ptr-rec {{ ansible_fqdn }}"
+  when: check_rev_record|failed
+
+

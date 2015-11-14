@@ -1,0 +1,258 @@
+---
+hadoop_groups:
+  - group_name: cloudera-scm
+    gid: 80000
+    members:
+    - cloudera-scm
+  - group_name: accumulo
+    gid: 80001
+    members:
+    - accumulo
+  - group_name: flume
+    gid: 80002
+    members:
+    - flume
+  - group_name: hbase
+    gid: 80003
+    members:
+    - hbase
+  - group_name: hdfs
+    gid: 80004
+    members:
+    - hdfs
+  - group_name: hadoop
+    gid: 80005
+    members:
+    - hdfs
+    - mapred
+    - yarn
+  - group_name: hive
+    gid: 80006
+    members:
+    - hive
+  - group_name: httpfs
+    gid: 80007
+    members:
+    - httpfs
+  - group_name: kms
+    gid: 80008
+    members:
+    - kms
+  - group_name: keytrustee
+    gid: 80009
+    members:
+    - keytrustee
+  - group_name: llama
+    gid: 80010
+    members:
+    - llama
+  - group_name: mapred
+    gid: 80011
+    members:
+    - mapred
+  - group_name: oozie
+    gid: 80012
+    members:
+    - oozie
+  - group_name: solr
+    gid: 80013
+    members:
+    - solr
+  - group_name: spark
+    gid: 80014
+    members:
+    - spark
+  - group_name: sentry
+    gid: 80015
+    members:
+    - sentry
+  - group_name: sqoop
+    gid: 80016
+    members:
+    - sqoop
+    - sqoop2
+  - group_name: sqoop2
+    gid: 80017
+    members:
+    - sqoop2
+  - group_name: yarn
+    gid: 80018
+    members:
+    - yarn
+  - group_name: zookeeper
+    gid: 80019
+    members:
+    - zookeeper
+
+hadoop_users:
+  - username: cloudera-scm
+    first_name: cloudera
+    last_name: scm
+    gecos: cloudera-scm
+    shell: /bin/bash
+    homedir: /home/cloudera-scm
+    uid: 80000
+    gid: 80000
+    passwd: HDFS01new
+  - username: accumulo
+    first_name: accumulo
+    last_name: service
+    gecos: accumulo
+    shell: /bin/bash
+    homedir: /home/accumulo
+    uid: 80001
+    gid: 80001
+    passwd: HDFS01new
+  - username: flume
+    first_name: flume
+    last_name: service
+    gecos: flume
+    shell: /bin/bash
+    homedir: /home/flume
+    uid: 80002
+    gid: 80002
+    passwd: HDFS01new
+  - username: hbase
+    first_name: hbase
+    last_name: service
+    gecos: hbase
+    shell: /bin/bash
+    homedir: /home/hbase
+    uid: 80003
+    gid: 80003
+    passwd: HDFS01new
+  - username: hdfs
+    first_name: hdfs
+    last_name: service
+    gecos: hdfs
+    shell: /bin/bash
+    homedir: /home/hdfs
+    uid: 80004
+    gid: 80004
+    passwd: HDFS01new
+  - username: hive
+    first_name: hive
+    last_name: service
+    gecos: hive
+    shell: /bin/bash
+    homedir: /home/hive
+    uid: 80006
+    gid: 80006
+    passwd: HDFS01new
+  - username: httpfs
+    first_name: httpfs
+    last_name: service
+    gecos: httpfs
+    shell: /bin/bash
+    homedir: /home/httpfs
+    uid: 80007
+    gid: 80007
+    passwd: HDFS01new
+  - username: kms
+    first_name: kms
+    last_name: service
+    gecos: kms
+    shell: /bin/bash
+    homedir: /home/kms
+    uid: 80008
+    gid: 80008
+    passwd: HDFS01new
+  - username: keytrustee
+    first_name: keytrustee
+    last_name: service
+    gecos: keytrustee
+    shell: /bin/bash
+    homedir: /home/keytrustee
+    uid: 80009
+    gid: 80009
+    passwd: HDFS01new
+  - username: llama
+    first_name: llama
+    last_name: service
+    gecos: llama
+    shell: /bin/bash
+    homedir: /home/llama
+    uid: 80010
+    gid: 80010
+    passwd: HDFS01new
+  - username: mapred
+    first_name: mapred
+    last_name: service
+    gecos: mapred
+    shell: /bin/bash
+    homedir: /home/mapred
+    uid: 80011
+    gid: 80011
+    passwd: HDFS01new
+  - username: oozie
+    first_name: oozie
+    last_name: service
+    gecos: oozie
+    shell: /bin/bash
+    homedir: /home/oozie
+    uid: 80012
+    gid: 80012
+    passwd: HDFS01new
+  - username: solr
+    first_name: solr
+    last_name: service
+    gecos: solr
+    shell: /bin/bash
+    homedir: /home/solr
+    uid: 80013
+    gid: 80013
+    passwd: HDFS01new
+  - username: spark
+    first_name: spark
+    last_name: service
+    gecos: spark
+    shell: /bin/bash
+    homedir: /home/spark
+    uid: 80014
+    gid: 80014
+    passwd: HDFS01new
+  - username: sentry
+    first_name: sentry
+    last_name: service
+    gecos: sentry
+    shell: /bin/bash
+    homedir: /home/sentry
+    uid: 80015
+    gid: 80015
+    passwd: HDFS01new
+  - username: sqoop
+    first_name: sqoop
+    last_name: service
+    gecos: sqoop
+    shell: /bin/bash
+    homedir: /home/sqoop
+    uid: 80016
+    gid: 80016
+    passwd: HDFS01new
+  - username: sqoop2
+    first_name: sqoop2
+    last_name: service
+    gecos: sqoop2
+    shell: /bin/bash
+    homedir: /home/sqoop2
+    uid: 80017
+    gid: 80017
+    passwd: HDFS01new
+  - username: yarn
+    first_name: yarn
+    last_name: service
+    gecos: yarn
+    shell: /bin/bash
+    homedir: /home/yarn
+    uid: 80018
+    gid: 80018
+    passwd: HDFS01new
+  - username: zookeeper
+    first_name: zookeeper
+    last_name: service
+    gecos: zookeeper
+    shell: /bin/bash
+    homedir: /home/zookeeper
+    uid: 80019
+    gid: 80019
+    passwd: HDFS01new

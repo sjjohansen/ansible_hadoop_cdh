@@ -1,0 +1,11 @@
+---
+- hosts: tag_Ansible_Group_freeipa
+  roles:
+    - selinux
+    - firewall
+    - kernel
+    - hostname
+    - ipv6
+    - ntp
+    - dig
+    - freeipa_server

@@ -1,0 +1,18 @@
+---
+- name: ensure ipa-client is at the latest version
+  yum: pkg=ipa-client state=latest
+
+- name: ensure oddjob-mkhomedir is at the latest version
+  yum: pkg=oddjob-mkhomedir state=latest
+
+- name: ensure ipa-admintools is at the latest version
+  yum: pkg=ipa-admintools state=latest
+
+- name: test if mkhomedir enabled
+  command: "egrep pam_oddjob_mkhomedir.so /etc/pam.d/system-auth"
+  register: mkhomedir_result
+  ignore_errors: True
+
+- name: enable mkhomedir
+  command: "authconfig --enablemkhomedir --update"
+  when: mkhomedir_result|failed

@@ -1,0 +1,11 @@
+---
+- name: add local group entries
+  lineinfile: dest=/etc/group state=present regexp="^{{ item.group_name }}:.*" line="{{ item.group_name }}:x:{{ item.gid }}:{{ item.members|join(',') }}"
+  with_items: "{{ hadoop_groups }}"
+
+- name: add local user entries
+  lineinfile: dest=/etc/passwd state=present regexp="^{{ item.username }}:.*" line="{{ item.username }}:x:{{ item.uid }}:{{ item.gid }}:{{ item.gecos }}:{{ item.homedir }}:{{ item.shell }}"
+  with_items: "{{ hadoop_users }}"
+  notify:
+    - run pwconv
+

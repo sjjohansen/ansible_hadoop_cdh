@@ -1,0 +1,7 @@
+---
+- hosts: cdh
+  roles:
+    - hadoop_users_local
+- hosts: tag_Ansible_Group_freeipa
+  roles:
+    - hadoop_users_freeipa

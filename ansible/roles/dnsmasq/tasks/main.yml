@@ -1,0 +1,8 @@
+---
+- name: ensure dnsmasq is at the latest version
+  yum: pkg=dnsmasq state=latest
+
+- name: ensure dnsmasq is running
+  service: name=dnsmasq state=started enabled=yes
+
+

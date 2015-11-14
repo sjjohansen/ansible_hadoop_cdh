@@ -1,0 +1,3 @@
+---
+- include: freeipa_config_server.yml
+- include: freeipa_config_client.yml

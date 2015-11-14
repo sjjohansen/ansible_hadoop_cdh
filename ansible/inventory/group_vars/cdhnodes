@@ -1,0 +1,30 @@
+---
+swappiness: 10
+
+limits_d_filename: cdh.conf
+limits:
+- domain: hdfs
+  type: '-'
+  item: nofile
+  value:  32768
+- domain: hdfs
+  type: '-'
+  item: nproc
+  value:  32768
+- domain: mapred
+  type: '-'
+  item: nofile
+  value:  32768
+- domain: mapred
+  type: '-'
+  item: nproc
+  value:  32768
+- domain: hbase
+  type: '-'
+  item: nofile
+  value:  32768
+- domain: hbase
+  type: '-'
+  item: nproc
+  value:  32768
+

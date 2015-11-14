@@ -1,0 +1,6 @@
+{{ '%-16s %s %s.%s' % ('127.0.0.1', 'localhost', 'localhost', domainname) }}
+
+{% for host in groups['ec2'] %}
+{{ '%-16s %s.%s %s' % (hostvars[host]['ec2_private_ip_address'], hostvars[host]['ec2_tag_Name'], hostvars[host]['domainname'], hostvars[host]['ec2_tag_Name']) }}
+{% endfor %}
+

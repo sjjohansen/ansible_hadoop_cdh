@@ -1,0 +1,4 @@
+---
+reverse_dns_zone: "{{ ansible_default_ipv4.address | regex_replace('(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)$', '\\\\3.\\\\2.\\\\1') }}.in-addr.arpa."
+forth_octet: "{{ ansible_default_ipv4.address | regex_replace('(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)$', '\\\\4') }}"
+

@@ -1,0 +1,38 @@
+---
+- name: get kerberos admin ticket
+  shell: "echo '{{ ipa_admin_password }}' | kinit {{ ipa_admin_princ }}"
+
+- name: get all current ipa groups
+  shell: "ipa group-find | grep 'Group name:' | awk -F': ' '{print $NF}'"
+  register: ipa_groups
+  ignore_errors: True
+
+- name: add groups to ipa
+  command: "ipa group-add {{ item.group_name }} --desc {{ item.group_name }} --gid {{ item.gid }}"
+  when: item.group_name not in ipa_groups.stdout.split('\n')
+  with_items: "{{ hadoop_groups }}"
+
+- name: get all current ipa users
+  shell: "ipa user-find | grep 'User login:' | awk -F': ' '{print $NF}'"
+  register: ipa_users
+  ignore_errors: True
+
+- name: add user to ipa
+  shell: "echo {{ ipa_temp_pass }} | ipa user-add {{ item.username }} --first {{ item.first_name }} --last {{ item.last_name }} --gecos {{ item.gecos }} --shell {{ item.shell }} --homedir {{ item.homedir }} --uid {{ item.uid }} --gid {{ item.gid }} --noprivate --password"
+  when: item.username not in ipa_users.stdout.split('\n')
+  with_items: "{{ hadoop_users }}"
+
+- name: add users to ipa groups
+  shell: "ipa group-add-member {{ item.group_name }} --users={{ item.members|join(',') }}"
+  with_items: "{{ hadoop_groups }}"
+  when: item.members.0 is defined
+  ignore_errors: True
+
+- name: destroy admin ticket
+  shell: "kdestroy"
+
+- name: set user password
+  shell: "printf '%s\n%s\n%s\n' {{ ipa_temp_pass }} {{ item.passwd }} {{ item.passwd }} | kinit {{ item.username }};kdestroy"
+  when: item.username not in ipa_users.stdout.split('\n')
+  with_items: "{{ hadoop_users }}"
+
