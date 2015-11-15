@@ -1,6 +1,12 @@
 freeipa01
 cdhmgr01
 cdhgw01
+cdhgw02
+cdhgw03
+cdhgw04
 cdhmaster01
+cdhmaster02
+cdhmaster03
 cdhworker01
 cdhworker02
+cdhworker03

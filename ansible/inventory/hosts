@@ -12,8 +12,19 @@ tag_Ansible_Group_cdhgw
 [freeipa:children]
 tag_Ansible_Group_freeipa
 
+[hive:children]
+tag_Name_cdhmaster03
+
+[oozie:children]
+tag_Name_cdhmaster01
+
+[sqoop:children]
+tag_Name_cdhmaster01
+
 [tag_Ansible_Group_cdhmgr]
 [tag_Ansible_Group_cdhgw]
 [tag_Ansible_Group_cdhmaster]
 [tag_Ansible_Group_cdhworker]
 [tag_Ansible_Group_freeipa]
+[tag_Name_cdhmaster01]
+[tag_Name_cdhmaster03]

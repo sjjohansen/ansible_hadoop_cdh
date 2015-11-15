@@ -11,3 +11,6 @@
 - include: cloudera_mgr_install_agent.yml
 - include: cloudera_mgr_start_server.yml
 - include: cloudera_mgr_start_agent.yml
+- include: hive.yml
+- include: oozie.yml
+- include: sqoop.yml
