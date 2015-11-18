@@ -1,0 +1,4 @@
+---
+- hosts: cdhnodes
+  roles:
+    - transparent_hugepage
