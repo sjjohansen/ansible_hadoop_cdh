@@ -21,10 +21,14 @@ tag_Name_cdhmaster01
 [sqoop:children]
 tag_Name_cdhmaster01
 
+[src:children]
+tag_Ansible_Group_srcsystem
+
 [tag_Ansible_Group_cdhmgr]
 [tag_Ansible_Group_cdhgw]
 [tag_Ansible_Group_cdhmaster]
 [tag_Ansible_Group_cdhworker]
 [tag_Ansible_Group_freeipa]
+[tag_Ansible_Group_srcsystem]
 [tag_Name_cdhmaster01]
 [tag_Name_cdhmaster03]

@@ -4,3 +4,4 @@
 - include: cdh_gateways.yml
 - include: cdh_masters.yml
 - include: cdh_workers.yml
+- include: source_systems.yml
